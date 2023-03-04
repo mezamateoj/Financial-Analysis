@@ -1,3 +1,6 @@
-## Financial Analysis UsinG Python
+## Financial Analysis Using Python
 
-Collection of projects.
+### Collection of projects mainly focus on finance using python.
+
+
+
