@@ -1,32 +1,37 @@
 import pandas as pd
 import yfinance as yf
 import requests
-import json
+import config
 
-# api key
-KEY = '5590f2df914fe6c25314e61989cc6dee'
 
 # income statement function call
 def income_statement(stock):
-    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/income-statement/{stock}?limit=120&apikey={KEY}")
+    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/income-statement/{stock}?limit=120&apikey={config.KEY}")
     income = r.json()
     df = pd.DataFrame.from_dict(income)
     return df
 
 def balance_sheet(stock):
-    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{stock}?limit=120&apikey={KEY}")
+    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{stock}?limit=120&apikey={config.KEY}")
     income = r.json()
     df = pd.DataFrame.from_dict(income)
     return df
 
 def cash_flow(stock):
-    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{stock}?limit=120&apikey={KEY}")
+    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{stock}?limit=120&apikey={config.KEY}")
     income = r.json()
     df = pd.DataFrame.from_dict(income)
     return df
 
-print(cash_flow('TSLA'))
+# Trailing 12 Months ratios
+def ttm_ratios(stock):
+    r = requests.get(url=f"https://financialmodelingprep.com/api/v3/ratios-ttm/{stock}?apikey={config.KEY}")
+    ratios = r.json()
+    df = pd.DataFrame.from_dict(ratios)
+    return df
 
+
+print(cash_flow('TSLA'))
 # # Define the ticker symbol for the company you want to analyze
 # ticker_symbol = 'AAPL'
 
