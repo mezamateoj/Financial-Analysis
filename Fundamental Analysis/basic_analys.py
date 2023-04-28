@@ -34,6 +34,7 @@ def ttm_ratios(stock):
 
 
 
+
 # print(cash_flow('TSLA'))
 # # Define the ticker symbol for the company you want to analyze
 # ticker_symbol = 'AAPL'
