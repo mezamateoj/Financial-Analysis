@@ -2,3 +2,4 @@ config.py
 PortfolioConfig.py
 .env
 data.json
+modern_portfolio_theory
